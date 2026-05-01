@@ -1,21 +1,44 @@
 package com.example.ReactSpringApp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api") // this allows all api starting with /api
 public class Hello {
     @GetMapping("/test")
-    public String test(){
-        return "Working";
+    public String getTest(){
+        return "Working perfectly !";
     }
 
-    @PostMapping("/user")
-    public User user(@RequestBody ){
+    // api/to    because of RequestMapping
+    @GetMapping("/to")
+    public String getTo(){
+        return "hello";
+    }
+
+    //Path variable
+    // api/1    to fetch 1
+    @GetMapping("/{id}")  // this helps to get "/api/1"  the variable 1
+    public String param(@PathVariable long id){
+        return "working"+id;
+
 
     }
+
+    // Request Param
+    // api/test?id=1     key:id value:1
+    @GetMapping("/create")
+    public String getParam(@RequestParam String Userid,@RequestParam String Password  ){
+        return "Userid "+Userid+" "+"Password "+Password;
+    }
+
+
+    @PostMapping("/create")
+    public String create(@RequestBody String  body){
+        return body;
+    }
+
+
 
 
 
