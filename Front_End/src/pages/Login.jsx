@@ -1,15 +1,26 @@
 import React,{useState} from "react";
 import axios from "axios";
-import './Four.css'
+import {useNavigate} from "react-router-dom";
+import './Login.css'
 
-function Four(){
+function Login(){
     const [name,setName]=React.useState("");
     const [email,setEmail]=React.useState("");
-    const [role,setRole]=React.useState("");
+    const [role,setRole]=React.useState("Doctor");
+
+    const navigate=useNavigate();
 
     const onSubmit = async (e)=>{
         e.preventDefault();
         const res=await axios.post("http://localhost:5000/user",{name,email,role});
+        const data= res.data;
+        if (data.role=="Doctor"){
+            navigate("/Doctor",{state:data});
+        }
+        
+        else if(data.role=="Patient"){
+            navigate("/Patient");
+        }
         console.log("submitted",res.data);
 
     }
@@ -33,8 +44,8 @@ function Four(){
                 <input className="input" value={email} onChange={e=>setEmail(e.target.value)}/>
                 </div>
                 <div className="field">
-                <lable>Role:</lable>
-                <select  className="input" value={role} onChange={e=>setRole(e.target.value)}>
+                <label>Role:</label>
+                <select  placeholder=" " className="input" value={role} onChange={e=>setRole(e.target.value)}>
                 <option value="Doctor">
                     Doctor
                 </option>
@@ -52,5 +63,5 @@ function Four(){
 
 
 }
-export default Four;
+export default Login;
 

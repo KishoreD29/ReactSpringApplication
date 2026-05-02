@@ -1,0 +1,53 @@
+/* Full page */
+
+
+/* Header */
+.header {
+    background: linear-gradient(90deg, #f1f2f4, #4da3ff);
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Container */
+div {
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* Greeting text */
+p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Button */
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #ff5c5c;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Available state */
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Optional: dynamic color using class */
+button.available {
+    background: #2de056;
+}
+
+button.not-available {
+    background: #dc3545;
+}

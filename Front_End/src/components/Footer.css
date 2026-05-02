@@ -1,0 +1,103 @@
+/* Footer */
+.footer {
+    background-color: #1e293b; /* same as header */
+    color: #e2e8f0;
+
+    padding: 20px 30px;
+    margin-top: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer logo/title */
+.footer .logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #38bdf8;
+}
+
+/* Footer links */
+.footer nav {
+    display: flex;
+    align-items: center;
+}
+
+.footer nav a {
+    position: relative;
+    color: #e2e8f0;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.footer nav a:hover {
+    color: #38bdf8;
+}
+
+/* Underline animation */
+.footer nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #38bdf8;
+    transition: width 0.3s ease;
+}
+
+.footer nav a:hover::after {
+    width: 100%;
+}
+
+/* Footer text (copyright etc.) */
+.footer p {
+    margin: 0;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* Optional button in footer */
+.footer .btn {
+    margin-left: 20px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+
+    background-color: #22c55e;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.footer .btn:hover {
+    background-color: #16a34a;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer nav a {
+        margin: 10px;
+    }
+}
