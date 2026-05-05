@@ -1,0 +1,119 @@
+/* .Container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+    justify-content: center;
+   
+}
+
+.item {
+    width: 220px;
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.item p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.item h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.available {
+    color: green !important;
+    font-weight: bold;
+}
+
+.not-available {
+    color: red !important;
+    font-weight: bold;
+} */
+
+.Container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 30px;
+    justify-content: center;
+    background: #f5f7fb;
+    min-height: 40vh;
+}
+.item {
+    width: 240px;
+    background: linear-gradient(145deg, #ffffff, #f9fafc);
+    border-radius: 18px;
+    padding: 14px;
+
+    border: 1px solid #eaeaea;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+.item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    border-color: #4da3ff;
+}
+.item h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+}.item p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #64748b;
+}
+.available {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #dcfce7;
+    color: #16a34a;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.not-available {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 12px;
+}
+.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.item:hover::before {
+    left: 100%;
+}
+.item p {
+    letter-spacing: 0.3px;
+}

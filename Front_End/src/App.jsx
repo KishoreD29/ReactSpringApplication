@@ -6,9 +6,12 @@ import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Login from './pages/Login'
 import Doctor from './pages/Doctor/Doctor'
 import Patient from './pages/Patient/Patient'
+import DoctorDashboard from './pages/Patient/DoctorDetails'
 import Header from './components/Header'
 import Footer from './components/Footer'
+
 import './App.css'
+import DocotorDetails from './pages/Patient/DoctorDetails'
 
 function App() {
   
@@ -22,6 +25,7 @@ function App() {
         <Route path="/" element={<Login/>}/>
         <Route path="/patient" element={<Patient/>}/>
         <Route path="/doctor" element={<Doctor/>}/>
+        <Route path="/doctordetails" element={<DocotorDetails/>}/>
 
       </Routes>
       </BrowserRouter>

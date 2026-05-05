@@ -8,8 +8,12 @@ function Doctor(){
     const location=useLocation();
     const data=location.state;
     const toogleActivity= async()=>{
-        ( setAvailable(!available))
-        const res= await axios.put("http://localhost/5000/Doctor/{data.id}",{available});
+        const newValue=!available
+        setAvailable(newValue);
+        console.log(data);
+        console.log(data.id);
+        const res= await axios.put(`http://localhost:5000/Doctor/${data.id}?available=${newValue}`);
+        
     }
     
     
@@ -24,7 +28,8 @@ function Doctor(){
             <button onClick={toogleActivity} className={available ? "available" : "not-available"}> 
                 {available ?"Available":"Notavaialable"}
             </button>
-
+        
+            
         </div>
     )
 }
