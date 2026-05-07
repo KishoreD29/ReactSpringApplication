@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {useNavigate,Link} from "react-router-dom";
 import './Login.css'
 
 function Login(){
@@ -23,6 +23,9 @@ function Login(){
         }
         console.log("submitted",res.data);
 
+    }
+    const onClick=()=>{
+        navigate("/signup")
     }
 
     return(
@@ -55,6 +58,8 @@ function Login(){
                 </select>
                 </div>
                 <button type="submit">Submit</button>
+
+                <Link to="/signup">Sign Up</Link>
             </form>
 
         </div>
