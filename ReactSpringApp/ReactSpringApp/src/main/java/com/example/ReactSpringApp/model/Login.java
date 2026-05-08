@@ -6,16 +6,16 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class SignUp {
+public class Login {
     @Id
     @GeneratedValue
-    long id;
-    String name;
-    String email;
-    String password;
+    private long id;
+
+    private String email;
+    private String password;
+
 
 }
-

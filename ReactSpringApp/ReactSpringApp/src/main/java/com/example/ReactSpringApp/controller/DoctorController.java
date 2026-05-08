@@ -1,11 +1,12 @@
 package com.example.ReactSpringApp.controller;
 
 import com.example.ReactSpringApp.model.Doctor;
-import com.example.ReactSpringApp.model.User;
 import com.example.ReactSpringApp.service.DoctorService;
+import com.example.ReactSpringApp.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -14,13 +15,22 @@ public class DoctorController {
     @Autowired
     DoctorService doctorService;
 
+    @Autowired
+    JwtUtil jwtUtil;
 
-    @PutMapping("/Doctor/{id}")
-    public Doctor getParam(@PathVariable long id, @RequestParam Boolean available){
+
+    @PutMapping("/doctoravailability")
+    public Doctor getParam( @RequestParam Boolean available,HttpServletRequest request){
         System.out.println("HIT API");
-        System.out.println(id);
+        String header = request.getHeader("Authorization");
+
+        String token = header.substring(7);
+
+        String email = jwtUtil.extractEmail(token);
+
         System.out.println(available);
-        return doctorService.update(id,available) ;
+        System.out.println(email);
+        return doctorService.update(email,available);
     }
 
     @GetMapping("/doctordetails")
