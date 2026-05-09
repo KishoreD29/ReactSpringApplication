@@ -1,8 +1,9 @@
 package com.example.ReactSpringApp.controller;
 
+import com.example.ReactSpringApp.dto.LoginDTO;
 import com.example.ReactSpringApp.dto.LoginResponse;
-import com.example.ReactSpringApp.model.Login;
 import com.example.ReactSpringApp.service.LoginService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +19,11 @@ public class LoginController {
 //    }
 
     @PostMapping("/login")
-    public LoginResponse create(@RequestBody Login user){
+    public LoginResponse create(@Valid @RequestBody LoginDTO loginDTO){
 
-        System.out.println("Email: " + user.getEmail());
-        System.out.println("Password: " + user.getPassword());
-        return service.verifyuser(user);
+        System.out.println("Email: " + loginDTO.getEmail());
+        System.out.println("Password: " + loginDTO.getPassword());
+        return service.verifyuser(loginDTO);
 
     }
 

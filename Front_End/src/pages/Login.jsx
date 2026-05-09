@@ -7,17 +7,16 @@ function Login(){
     
     const [email,setEmail]=React.useState("");
     const [password,setPassword]=React.useState("");
+    const [error,setError]=React.useState({});
 
     const navigate=useNavigate();
 
     const onSubmit = async (e)=>{
         e.preventDefault();
-        const res=await axios.post("http://localhost:5000/login",{email,password});
-        console.log("HI");
-        console.log(res);
-
-        const data= res.data;
-        const token=data.token;
+        try{
+            const res=await axios.post("http://localhost:5000/login",{email,password});
+            const data= res.data;
+            const token=data.token;
         localStorage.setItem("token",token);
         if (data.role=="Doctor"){
             navigate("/Doctor",{state:data});
@@ -28,7 +27,19 @@ function Login(){
         }
         console.log("submitted",res.data);
 
+    
+        }
+        catch(error){
+            console.log(error.response?.data);
+            setError(error.response?.data || {});
+
+
+
+        }
+        
+
     }
+    
     const onClick=()=>{
         navigate("/signup")
     }
@@ -45,11 +56,13 @@ function Login(){
                 <label>Email:</label>
                 
                 <input className="input" value={email} onChange={e=>setEmail(e.target.value)}/>
+                {error?.email && <p> {error.email}</p>}
                 </div>
                 <div className="field">
                 <label>Password:</label>
                 
                 <input className="input" value={password} onChange={e=>setPassword(e.target.value)}/>
+                {error?.password && <p>{error.password}</p>}
                 </div>
 
                 
