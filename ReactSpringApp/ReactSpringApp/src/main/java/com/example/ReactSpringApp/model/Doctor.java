@@ -1,12 +1,11 @@
 package com.example.ReactSpringApp.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
+
 @Entity
-@Setter
+@Data
 public class Doctor {
     @Id
     @GeneratedValue
