@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+
+# RAG generated files
+vectors.index
+chunks.pkl
+
+# Ignore doctor.py
+rag/doctor.py
